@@ -1,0 +1,137 @@
+---
+interface Props {
+	slug: string;
+	class?: string;
+}
+
+const { slug, class: className = "w-8 h-8 text-secondary" } = Astro.props;
+---
+
+{slug === 'box-de-vidro-para-banheiro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Shower head spraying water on a glass cabin -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M12 2v4M8 4h8M10 6h4M6 21V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M9 10v1m3-1v1m3-1v1m-4 4v1m2-1v1m3-6l-1 5" />
+	</svg>
+)}
+
+{slug === 'espelho-sob-medida' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Mirror frame with diagonal shine lines -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M16 7l-8 8M16 11l-5 5M18 4.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+	</svg>
+)}
+
+{slug === 'cobertura-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Glass canopy slanted roof supported by structures -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 17V7l18 4v10" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 11l6 1.3M3 15l12 2.7M12 9l6 1.3" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2M16 4l-1 1M8 4.5l1 1" />
+	</svg>
+)}
+
+{slug === 'manutencao-em-sacadas-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Balcony glass panels with tools -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v10H4zM4 15v4h16v-4" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M9 5v10M15 5v10" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M14.5 14.5l3.5 3.5m0-3.5a2 2 0 1 1-3.5 3.5" />
+	</svg>
+)}
+
+{slug === 'manutencao-em-esquadrias-de-aluminio' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Aluminium sliding window profile with wrench tool -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18v16H3zM12 4v16M3 12h18" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M15 15l4 4m-4 0a1.5 1.5 0 1 1 4-4" />
+	</svg>
+)}
+
+{slug === 'conserto-de-box-de-banheiro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Shower box glass panel with hammer/wrench repair indicators -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h10v16H4zm10 0h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-6" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M15 12h3M7 8v8" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M14.5 14.5l3.5 3.5m-3.5 0a1.5 1.5 0 1 1 3.5-3.5" />
+	</svg>
+)}
+
+{slug === 'cortina-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Retractable glass panels folded and sliding -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M3 20h18" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M5 4v16M9 4v16M13 4v16M17 4l2.5 3M17 20l2.5-3" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7v10" />
+	</svg>
+)}
+
+{slug === 'envidracamento-de-sacada' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Curved balcony with vertical glazing panes -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M4 18h16M3 14c2-3 5-5 9-5s7 2 9 5" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M6 11v7M10 9.5v8.5M14 9.5v8.5M18 11v7" />
+	</svg>
+)}
+
+{slug === 'divisorias-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Overlapping office glass partitions showing division -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 6h10v14H3z" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M11 4h10v14H11" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M7 6v14M15 4v14" />
+	</svg>
+)}
+
+{slug === 'fechamento-de-varanda-com-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- House front veranda with glass closure lines -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-7 9 7M5 12v8h14v-8" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M8 12v8M12 12v8M16 12v8" />
+	</svg>
+)}
+
+{slug === 'guarda-corpo-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Handrail with vertical posts and glass pane inserts -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M5 7v13M19 7v13M12 7v13" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M7 9h10v8H7z" />
+	</svg>
+)}
+
+{slug === 'muro-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Heavy metal pillars holding glass slabs for property walls -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 18h18M6 6v12M18 6v12" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10v8H7z" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M2 14c1-1 3-1 4 0m12 0c1-1 3-1 4 0" />
+	</svg>
+)}
+
+{slug === 'porta-de-vidro-temperado' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Glass door swinging open with handle and pivot indicator -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 4v16h18M3 4l12 2v12L3 20" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M11 10v4" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M15 18a5 5 0 0 0 5-5" />
+	</svg>
+)}
+
+{slug === 'vidros-sob-medida' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Triangle ruler and dimension indicators measuring a pane -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 17h14L3 3z" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M21 5v14M19 5h4M19 19h4" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M9 17h1" />
+	</svg>
+)}
+
+{slug === 'manutencao-de-cortina-de-vidro' && (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={className}>
+		<!-- Vertical panels with settings gear/wheel -->
+		<path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M3 20h18M6 4v16M12 4v16" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M18 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+		<path stroke-linecap="round" stroke-linejoin="round" d="M18 7v1m-3.5 4h1m6 0h1m-3.5 3v1" />
+	</svg>
+)}

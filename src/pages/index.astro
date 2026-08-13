@@ -1,0 +1,742 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { SITE_CONFIG } from '../data/config';
+import ServiceIcon from '../components/ServiceIcon.astro';
+
+const allServices = await getCollection('servicos');
+// Exibir até 6 serviços na página inicial
+const services = allServices.slice(0, 6);
+
+const serviceImages: Record<string, string> = {
+  'box-de-vidro-para-banheiro': '/box-banheiro-home.jpg',
+  'cobertura-de-vidro': '/cobertura-real-1.jpg',
+  'conserto-de-box-de-banheiro': '/box-banheiro-real-2.jpg',
+  'cortina-de-vidro': '/sacada-real-1.jpg',
+  'divisorias-de-vidro': '/divisoria-real-1.jpg',
+  'envidracamento-de-sacada': '/sacada-real-2.jpg',
+  'espelho-sob-medida': '/espelho-real-1.jpg',
+  'fechamento-de-varanda-com-vidro': '/sacada-real-2.jpg',
+  'guarda-corpo-de-vidro': '/guardacorpo-real-1.jpg',
+  'manutencao-de-cortina-de-vidro': '/manutencao-real-1.jpg',
+  'manutencao-em-esquadrias-de-aluminio': '/manutencao-esquadria-1.jpg',
+  'manutencao-em-sacadas-de-vidro': '/manutencao-sacada-1.jpg',
+  'muro-de-vidro': '/muro-real-1.jpg',
+  'porta-de-vidro-temperado': '/porta-real-1.jpg',
+  'vidros-sob-medida': '/vidrossobmedida-real-1.jpg',
+};
+---
+
+<Layout 
+	title="Vidraçaria em Porto Alegre | Projetos e Vidros sob Medida"
+	description="A melhor Vidraçaria em Porto Alegre para o seu projeto. Encontre vidros em Porto alegre de alta qualidade na nossa vidracaria. Acesse e ligue para o nosso telefone de vidraçaria perto de mim!"
+>
+	
+	<!-- 1. Hero Section -->
+	<section class="relative bg-secondary overflow-hidden py-24 md:py-32">
+		<!-- Imagem de fundo com opacidade reduzida e degradê suave para preservar contraste e legibilidade -->
+		<div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.12]" style="background-image: url('/glazier_workshop_bg.jpg');"></div>
+		<div class="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent"></div>
+
+		<div class="relative container mx-auto px-6 md:px-12 z-10">
+			<!-- Tag -->
+			<span class="inline-block bg-primary text-accent text-xs font-black tracking-widest uppercase px-4 py-2 rounded-full mb-6 animate-pulse">
+				Líder em Vidros sob Medida
+			</span>
+			
+			<!-- Título (H1) com leading-tight, tracking-tighter e escala desktop de no máximo 6xl -->
+			<h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-8">
+				Vidraçaria em <span class="text-primary">Porto Alegre</span>
+			</h1>
+
+			<!-- Subtítulo persuasivo contendo as primeiras 100-150 palavras com palavras-chave -->
+			<p class="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed mb-12">
+				Procurando por <strong>vidros em Porto alegre</strong> ou uma <strong>vidraçaria perto de mim</strong> com atendimento rápido? A nossa <strong>vidraçaria</strong> realiza projetos sob medida em vidros temperados, espelhos e box de banheiro. Se você busca o <strong>telefone de vidraçaria</strong> confiável para solicitar um orçamento ou uma <strong>vidracaria</strong> parceira para seu projeto, fale conosco agora!
+			</p>
+
+			<!-- Dois botões com os textos exatos pedidos, micro-interações hover:scale-105 active:scale-95 -->
+			<div class="flex flex-wrap gap-4">
+				<a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="bg-primary text-accent hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg shadow-lg shadow-primary/10 hover:bg-sky-300 inline-block">
+					Solicitar Orçamento no WhatsApp
+				</a>
+				<a href="/servicos" class="bg-white/10 text-white border border-white/20 hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg hover:bg-white/20 inline-block">
+					Ver Nossos Serviços
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. Diferenciais Section -->
+	<section class="bg-slate-100/50 border-t border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16">
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">Por que escolher a nossa Vidraçaria em Porto Alegre?</h2>
+				<p class="text-lg text-slate-600">Diferenciais que nos destacam como referência na região de {SITE_CONFIG.address.city}.</p>
+			</div>
+
+			<!-- Grid com 4 cards interativos com hover:scale-105 active:scale-95 -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="10" x2="14" y1="2" y2="2"/>
+								<line x1="12" x2="12" y1="14" y2="11"/>
+								<circle cx="12" cy="14" r="8"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Vidros em Porto alegre com Instalação Rápida</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Agilidade e compromisso com o seu tempo. Realizamos a montagem do seu box ou espelho com processos otimizados para garantir rapidez e limpeza pós-obra.
+						</p>
+					</div>
+				</div>
+
+				<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+								<path d="m9 11 2 2 4-4"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Padrão ABNT</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Segurança em primeiro lugar. Trabalhamos exclusivamente sob a norma NBR 14698, utilizando vidros temperados certificados e ferragens de alta resistência.
+						</p>
+					</div>
+				</div>
+
+				<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"/>
+								<path d="M12 8c-2 0-3 1-3 3s1 3 3 3 3 1 3 3-1 3-3 3"/>
+								<path d="M12 5v14"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Melhor Custo-Benefício</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Condições facilitadas de pagamento e parcelamento flexível, garantindo que você tenha o mais alto padrão em vidraçaria com o preço mais justo de POA.
+						</p>
+					</div>
+				</div>
+
+				<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M21 21H3L21 3v18z"/>
+								<path d="M18 18H7.5L18 7.5V18z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Projetos Sob Medida</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Execução precisa de projetos personalizados, como espelhos com acabamento bisotê, tampos de mesa sob medida e envidraçamentos especiais para sua casa.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. Sobre Nós (Resumo) Section -->
+	<section class="bg-secondary text-white">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Quem Somos</span>
+					<h2 class="text-3xl md:text-4xl font-black text-white tracking-tighter leading-tight mb-6">Tradição e Qualidade na Instalação de Vidros</h2>
+					<p class="text-slate-300 text-lg leading-relaxed mb-8">
+						Somos uma vidraçaria focada em {SITE_CONFIG.address.city}, especializada no fornecimento e montagem de box de vidro temperado, fechamento de sacadas e espelhos sob medida. Trabalhamos exclusivamente sob as normas técnicas da ABNT para oferecer segurança absoluta e elegância duradoura para o seu imóvel.
+					</p>
+					<!-- Botão Conheça nossa História com micro-interações -->
+					<a href="/sobre" class="inline-block bg-white text-secondary hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg shadow-lg shadow-white/5 hover:bg-slate-100">
+						Conheça nossa História
+					</a>
+				</div>
+				<div class="bg-white/5 rounded-2xl p-12 flex items-center justify-center min-h-[300px] hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm border border-white/10">
+					<div class="text-center">
+						<span class="text-6xl font-black text-primary block mb-2">10+</span>
+						<p class="text-slate-300 font-bold uppercase tracking-wider">Anos de Experiência no Mercado</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. Nossos Serviços Section -->
+	<section id="servicos" class="bg-slate-100/50 border-t border-b border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div>
+					<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">Nossos Serviços e Soluções em Vidro</h2>
+					<p class="text-lg text-slate-600">Confira a lista dos nossos principais serviços e produtos.</p>
+				</div>
+			</div>
+
+			<!-- Grade mostrando até 6 serviços da coleção 'servicos', cards com micro-interações e transições -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+				{services.map((service) => {
+					const imageUrl = serviceImages[service.slug] || '/glazier_workshop_bg.jpg';
+					return (
+						<div class="group bg-white border border-slate-100 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+							<div>
+								<!-- Imagem do Serviço -->
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src={imageUrl} 
+										alt={service.data.title} 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+										loading="lazy"
+									/>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+								</div>
+								
+								<div class="p-8">
+									<h3 class="text-xl font-bold text-secondary mb-4">
+										{service.data.title}
+									</h3>
+									<p class="text-slate-600 leading-relaxed text-sm">
+										{service.data.description}
+									</p>
+								</div>
+							</div>
+							<div class="px-8 pb-8">
+								<a href={`/servicos/${service.slug}`} class="text-primary font-bold hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-300 inline-flex items-center text-sm">
+									Saiba Mais <span class="ml-1">&rarr;</span>
+								</a>
+							</div>
+						</div>
+					);
+				})}
+			</div>
+
+			<!-- Botão 'Ver Todos os Serviços' -->
+			<div class="text-center">
+				<a href="/servicos" class="inline-block bg-primary text-accent hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg shadow-lg shadow-primary/10 hover:bg-sky-300">
+					Ver Todos os Serviços
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projetos Realizados Section -->
+	<section class="bg-white py-20 md:py-28">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16 text-center max-w-3xl mx-auto">
+				<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Nosso Portfólio</span>
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">
+					Projetos Executados na Capital Gaúcha
+				</h2>
+				<p class="text-slate-600 text-lg">
+					Confira fotos reais de alguns dos nossos trabalhos de instalação sob medida executados em residências na capital gaúcha.
+				</p>
+			</div>
+
+			<!-- Grid de Imagens dos Projetos -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<!-- Projeto 1: Box de Banheiro -->
+				<div class="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-sm hover:scale-105 active:scale-95 transition-all duration-500 hover:shadow-xl hover:shadow-secondary/5 aspect-[3/4]">
+					<img 
+						src="/projeto_box.jpg" 
+						alt="Instalação de Box de Vidro Temperado em Porto Alegre" 
+						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+						loading="lazy"
+					/>
+					<!-- Overlay de informações -->
+					<div class="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent opacity-90 p-6 flex flex-col justify-end">
+						<span class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Box de Banheiro</span>
+						<h3 class="text-lg font-black text-white leading-tight">Box de Canto Elegance</h3>
+						<p class="text-slate-300 text-xs mt-1">Instalado no Moinhos de Vento</p>
+					</div>
+				</div>
+
+				<!-- Projeto 2: Espelho -->
+				<div class="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-sm hover:scale-105 active:scale-95 transition-all duration-500 hover:shadow-xl hover:shadow-secondary/5 aspect-[3/4]">
+					<img 
+						src="/projeto_espelho.jpg" 
+						alt="Instalação de Espelho Lapidado sob Medida" 
+						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+						loading="lazy"
+					/>
+					<!-- Overlay de informações -->
+					<div class="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent opacity-90 p-6 flex flex-col justify-end">
+						<span class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Espelho sob Medida</span>
+						<h3 class="text-lg font-black text-white leading-tight">Espelho de Banheiro Lapidado</h3>
+						<p class="text-slate-300 text-xs mt-1">Instalado no Petrópolis</p>
+					</div>
+				</div>
+
+				<!-- Projeto 3: Sacada -->
+				<div class="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-sm hover:scale-105 active:scale-95 transition-all duration-500 hover:shadow-xl hover:shadow-secondary/5 aspect-[3/4]">
+					<img 
+						src="/projeto_sacada.jpg" 
+						alt="Envidraçamento de Sacada de Apartamento" 
+						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+						loading="lazy"
+					/>
+					<!-- Overlay de informações -->
+					<div class="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent opacity-90 p-6 flex flex-col justify-end">
+						<span class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Envidraçamento</span>
+						<h3 class="text-lg font-black text-white leading-tight">Fechamento de Sacada Retrátil</h3>
+						<p class="text-slate-300 text-xs mt-1">Instalado no Auxiliadora</p>
+					</div>
+				</div>
+
+				<!-- Projeto 4: Guarda-corpo -->
+				<div class="group relative overflow-hidden rounded-2xl border border-slate-100 shadow-sm hover:scale-105 active:scale-95 transition-all duration-500 hover:shadow-xl hover:shadow-secondary/5 aspect-[3/4]">
+					<img 
+						src="/projeto_guarda_corpo.jpg" 
+						alt="Guarda-corpo de Vidro Temperado e Aço Inox" 
+						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+						loading="lazy"
+					/>
+					<!-- Overlay de informações -->
+					<div class="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent opacity-90 p-6 flex flex-col justify-end">
+						<span class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Segurança & Design</span>
+						<h3 class="text-lg font-black text-white leading-tight">Guarda-corpo de Escada</h3>
+						<p class="text-slate-300 text-xs mt-1">Instalado no Menino Deus</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Como Funciona Section -->
+	<section class="bg-slate-50 border-t border-b border-slate-200/50 py-20 md:py-28">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16 text-center max-w-3xl mx-auto">
+				<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Passo a Passo</span>
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">
+					Como Comprar na nossa Vidracaria e instalar Vidros em Porto alegre
+				</h2>
+				<p class="text-slate-600 text-lg">
+					Do primeiro contato pelo WhatsApp até a instalação final, organizamos tudo para sua total comodidade e segurança.
+				</p>
+			</div>
+
+			<!-- Grid com 4 passos -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 relative">
+				<!-- Passo 1 -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 relative flex flex-col justify-between group">
+					<div>
+						<div class="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-primary/10 transition-colors select-none">01</div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-3">Contato & Estimativa</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Envie uma mensagem no WhatsApp com as medidas aproximadas e fotos do local. Nós enviamos uma estimativa rápida de preço e tiramos suas dúvidas iniciais.
+						</p>
+					</div>
+				</div>
+
+				<!-- Passo 2 -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 relative flex flex-col justify-between group">
+					<div>
+						<div class="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-primary/10 transition-colors select-none">02</div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-3">Medição Técnica Grátis</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Agendamos uma visita sem compromisso. Nosso profissional vai até você para coletar as medidas exatas, avaliar o caimento e indicar a melhor solução para o seu ambiente.
+						</p>
+					</div>
+				</div>
+
+				<!-- Passo 3 -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 relative flex flex-col justify-between group">
+					<div>
+						<div class="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-primary/10 transition-colors select-none">03</div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-3">Produção sob Medida</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Com as medidas confirmadas, iniciamos o corte e a têmpera do vidro. Trabalhamos seguindo à risca a norma NBR 14698 da ABNT para garantir resistência e durabilidade.
+						</p>
+					</div>
+				</div>
+
+				<!-- Passo 4 -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-8 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 relative flex flex-col justify-between group">
+					<div>
+						<div class="absolute top-4 right-6 text-6xl font-black text-slate-100 group-hover:text-primary/10 transition-colors select-none">04</div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-3">Instalação e Garantia</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Nossos instaladores próprios efetuam a montagem ágil de forma limpa e organizada. Pronto! Seu projeto finalizado com garantia e segurança.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botão de Ação -->
+			<div class="text-center">
+				<a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="bg-primary text-accent hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-10 py-5 rounded-lg shadow-lg shadow-primary/10 hover:bg-sky-300 inline-block text-lg">
+					Fazer Orçamento sem Compromisso
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5. Depoimentos Section -->
+	<section class="bg-white">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16 text-center">
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">O que dizem sobre nossa Vidraçaria</h2>
+				<p class="text-lg text-slate-600">A opinião de quem já realizou projetos conosco.</p>
+			</div>
+
+			<!-- 3 cards de depoimentos com micro-interações -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+				
+				<div class="bg-[#F0F4F8] border border-slate-200/50 rounded-2xl p-10 flex flex-col justify-between shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+					<p class="text-slate-700 italic leading-relaxed mb-8">
+						"Fiquei muito contente com a instalação dos vidros da minha sacada. A equipe foi pontual e o acabamento ficou impecável!"
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+							MC
+						</div>
+						<div>
+							<h4 class="font-bold text-secondary">Mariana Costa</h4>
+							<p class="text-slate-500 text-xs">{SITE_CONFIG.address.city} - {SITE_CONFIG.address.state}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-[#F0F4F8] border border-slate-200/50 rounded-2xl p-10 flex flex-col justify-between shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+					<p class="text-slate-700 italic leading-relaxed mb-8">
+						"O espelho bisotê sob medida para o closet superou minhas expectativas. Excelente atendimento no WhatsApp para tirar dúvidas."
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+							JR
+						</div>
+						<div>
+							<h4 class="font-bold text-secondary">Juliano Ribeiro</h4>
+							<p class="text-slate-500 text-xs">{SITE_CONFIG.address.city} - {SITE_CONFIG.address.state}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-[#F0F4F8] border border-slate-200/50 rounded-2xl p-10 flex flex-col justify-between shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+					<p class="text-slate-700 italic leading-relaxed mb-8">
+						"O box de banheiro temperado ficou muito resistente. Instalação rápida e excelente limpeza após o término da montagem."
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+							AS
+						</div>
+						<div>
+							<h4 class="font-bold text-secondary">Ana Souza</h4>
+							<p class="text-slate-500 text-xs">{SITE_CONFIG.address.city} - {SITE_CONFIG.address.state}</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. Chamada de Contato Section: Fundo escuro (bg-secondary = Slate-900). Corpo deve ser text-white. Título deve ser text-primary (Sky-400). -->
+	<section class="bg-secondary text-white">
+		<div class="container mx-auto px-6 md:px-12 text-center">
+			<h2 class="text-3xl md:text-5xl font-black text-primary mb-8 leading-tight tracking-tighter">
+				Precisa do nosso Telefone de Vidraçaria para Orçamento?
+			</h2>
+			<!-- Texto de corpo em fundo escuro DEVE ser text-white -->
+			<p class="text-lg md:text-xl text-white max-w-xl mx-auto mb-12">
+				Entre em contato agora mesmo e obtenha uma estimativa de preço rápida e sem compromisso para os seus vidros e espelhos.
+			</p>
+			
+			<!-- Dois botões grandes com micro-interações -->
+			<div class="flex flex-wrap justify-center gap-6">
+				<a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="bg-primary text-accent hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-10 py-6 rounded-lg text-lg shadow-lg shadow-primary/20 hover:bg-sky-300 flex items-center justify-center">
+					Conversar no WhatsApp
+				</a>
+				<a href={`tel:${SITE_CONFIG.phoneRaw}`} class="bg-white text-secondary hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-10 py-6 rounded-lg text-lg shadow-lg shadow-white/10 hover:bg-slate-100 flex items-center justify-center">
+					Ligar Agora
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ Section (Perguntas Frequentes) -->
+	<section class="bg-slate-50 border-t border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12 max-w-4xl">
+			<div class="mb-16 text-center">
+				<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Dúvidas Comuns</span>
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">
+					Perguntas Frequentes sobre Vidraçaria em Porto Alegre e Região
+				</h2>
+				<p class="text-slate-600 text-lg">
+					Esclareça suas principais dúvidas sobre prazos, materiais, medição técnica e formas de pagamento.
+				</p>
+			</div>
+
+			<div class="space-y-4">
+				<!-- Item 1 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">Qual é o prazo médio para a instalação de um box de banheiro?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								O prazo de fabricação e instalação de um box padrão em vidro temperado costuma ser de 5 a 10 dias úteis após a medição técnica feita pela nossa equipe. A montagem no seu banheiro é rápida, durando em média cerca de 2 horas.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item 2 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">O serviço de medição em Porto Alegre possui algum custo?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								Não! A visita técnica e a medição são gratuitas na cidade de Porto Alegre. Nossos profissionais vão até o local para colher as medidas exatas, avaliar a estrutura e assegurar o caimento correto do vidro sem cobrar nenhuma taxa por isso.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item 3 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">Com quais tipos de vidro vocês trabalham no dia a dia?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								Oferecemos uma linha completa e profissional: vidros temperados (perfeitos para boxes e portas), vidros laminados (focados em segurança extrema para coberturas ou mezaninos), espelhos lapidados e bisotê sob medida, além de opções jateadas, acidatas e vidros comuns de diversas espessuras.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item 4 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">Uma vidraçaria próxima de mim em Porto Alegre fica mais barata?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								Sim, contratar uma vidraçaria de Porto Alegre evita custos elevados de frete e deslocamento que empresas de outras regiões repassam no orçamento. Além disso, a proximidade agiliza os prazos de entrega e facilita qualquer assistência técnica rápida no pós-venda.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item 5 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">Como avaliar se uma vidraçaria é qualificada e segura?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								Para garantir segurança e qualidade, certifique-se de que a empresa atua de acordo com as normas ABNT (especialmente a NBR 14698 para vidros de segurança). Observe a avaliação de clientes anteriores no Google, dê preferência a vidraçarias que ofereçam garantia formal por escrito e fuja de orçamentos excessivamente baixos que possam indicar materiais paralelos ou sem têmpera adequada.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item 6 -->
+				<div class="faq-item bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+					<button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none" aria-expanded="false">
+						<span class="font-bold text-secondary text-base md:text-lg pr-4">Quais são as formas de pagamento aceitas para os projetos?</span>
+						<span class="faq-icon-wrapper w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-transform duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+							</svg>
+						</span>
+					</button>
+					<div class="faq-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out overflow-hidden">
+						<div class="overflow-hidden">
+							<div class="px-6 pb-6 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 pt-4">
+								Buscamos facilitar ao máximo a contratação de seu projeto: aceitamos cartões de crédito com parcelamento em até 10x sem juros, oferecemos desconto especial para pagamentos à vista via Pix e trabalhamos com faturamento sob medida via boleto bancário para empresas parceiras.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const faqToggles = document.querySelectorAll('.faq-toggle');
+
+		faqToggles.forEach(toggle => {
+			toggle.addEventListener('click', () => {
+				const item = toggle.closest('.faq-item');
+				const content = item?.querySelector('.faq-content');
+				const icon = toggle.querySelector('.faq-icon-wrapper');
+
+				// Fechar outros itens abertos
+				document.querySelectorAll('.faq-item').forEach(otherItem => {
+					if (otherItem !== item) {
+						otherItem.classList.remove('active');
+						const otherContent = otherItem.querySelector('.faq-content');
+						const otherIcon = otherItem.querySelector('.faq-icon-wrapper');
+						if (otherContent) {
+							otherContent.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+						}
+						if (otherIcon) {
+							otherIcon.classList.remove('rotate-45');
+						}
+					}
+				});
+
+				// Alternar estado do item clicado
+				if (item?.classList.contains('active')) {
+					item.classList.remove('active');
+					if (content) {
+						content.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+					}
+					if (icon) {
+						icon.classList.remove('rotate-45');
+					}
+				} else {
+					item?.classList.add('active');
+					if (content) {
+						content.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]');
+					}
+					if (icon) {
+						icon.classList.add('rotate-45');
+					}
+				}
+			});
+		});
+	</script>
+
+	<!-- 7. Localização Section (Google Maps) -->
+	<section class="bg-white border-t border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Informações de Contato/Endereço (5 colunas) -->
+				<div class="lg:col-span-5">
+					<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Nossa Sede</span>
+					<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-6">Localização da nossa Vidraçaria</h2>
+					<p class="text-slate-600 leading-relaxed mb-8">
+						Estamos localizados em Porto Alegre com atendimento presencial sob agendamento e visitas técnicas em toda a Região Metropolitana. Entre em contato para planejar o seu projeto.
+					</p>
+
+					<div class="space-y-4">
+						<a href={`https://maps.google.com/?q=${encodeURIComponent(SITE_CONFIG.address.street + ', ' + SITE_CONFIG.address.city + ' - ' + SITE_CONFIG.address.state)}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors duration-300 border border-transparent hover:border-slate-100 group block">
+							<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+									<path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold text-secondary text-sm">Endereço</h4>
+								<p class="text-slate-600 text-sm">{SITE_CONFIG.address.street} - {SITE_CONFIG.address.neighborhood}</p>
+								<p class="text-slate-500 text-xs">{SITE_CONFIG.address.city} - {SITE_CONFIG.address.state}, {SITE_CONFIG.address.postalCode}</p>
+							</div>
+						</a>
+
+						<div class="flex items-center gap-4 p-4 rounded-xl border border-transparent">
+							<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold text-secondary text-sm">Horário de Funcionamento</h4>
+								<p class="text-slate-600 text-sm">Segunda a Sexta: 08:00 às 18:00</p>
+								<p class="text-slate-600 text-sm">Sábado: 08:00 às 12:00</p>
+							</div>
+						</div>
+
+						<a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors duration-300 border border-transparent hover:border-slate-100 group block">
+							<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 16 16">
+									<path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold text-secondary text-sm">WhatsApp</h4>
+								<p class="text-slate-600 text-sm font-semibold group-hover:text-primary transition-colors underline">{SITE_CONFIG.whatsapp}</p>
+								<p class="text-slate-400 text-xs mt-0.5">Clique para iniciar uma conversa</p>
+							</div>
+						</a>
+
+						<a href={`mailto:${SITE_CONFIG.email}`} class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors duration-300 border border-transparent hover:border-slate-100 group block">
+							<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold text-secondary text-sm">E-mail</h4>
+								<p class="text-slate-600 text-sm font-semibold group-hover:text-primary transition-colors underline">{SITE_CONFIG.email}</p>
+								<p class="text-slate-400 text-xs mt-0.5">Clique para nos enviar uma mensagem</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<!-- Mapa do Google (7 colunas) -->
+				<div class="lg:col-span-7 w-full h-[450px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 relative hover:shadow-xl transition-shadow duration-300">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.195777416315!2d-51.2185255!3d-30.0381666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519786a3b684535%3A0x6b44a2c92e59e31d!2sAv.+Ipiranga%2C+1100+-+Praia+de+Belas%2C+Porto+Alegre+-+RS!5e0!3m2!1spt-BR!2sbr!4v1"
+						width="100%"
+						height="100%"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+						title="Localização da Vidros Pro no Google Maps"
+						class="absolute inset-0"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</Layout>

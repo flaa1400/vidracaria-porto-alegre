@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="Sobre Nós | Vidraçaria em Porto Alegre | Vidros Pro"
+	description="Conheça a história da nossa vidraçaria em Porto Alegre. Nossa missão, valores e compromisso com a segurança NR-18 e ABNT em instalações de vidros sob medida."
+>
+	
+	<!-- 1. Hero / Nossa História -->
+	<section class="py-20 md:py-28 bg-white overflow-hidden">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Texto -->
+				<div class="lg:col-span-7">
+					<span class="inline-block bg-primary/10 text-secondary text-xs font-black tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+						Nossa Trajetória
+					</span>
+					<!-- H1 com escala controlada e tracking-tighter -->
+					<h1 class="text-4xl md:text-5xl font-black text-secondary leading-tight tracking-tighter mb-8">
+						Tradição e Excelência em Vidraçaria
+					</h1>
+					
+					<p class="text-lg text-slate-600 leading-relaxed mb-6">
+						A nossa vidraçaria iniciou suas operações em Porto Alegre com o firme compromisso de elevar o padrão técnico do mercado local, fornecendo soluções sob medida com precisão absoluta de corte e rigor de engenharia.
+					</p>
+					<p class="text-lg text-slate-600 leading-relaxed mb-8">
+						Ao longo dos anos, expandimos nossos horizontes para atender grandes projetos residenciais e corporativos de alto padrão. Hoje, somos referência na capital gaúcha em envidraçamento de sacadas, fechamentos retráteis, espelhos decorativos lapificados e estruturas de vidro temperado e laminado de alta segurança.
+					</p>
+
+					<div class="border-l-4 border-primary pl-6 py-2 italic text-slate-700 font-medium">
+						"Unimos estética contemporânea a normas rígidas de segurança para criar ambientes seguros, iluminados e integrados."
+					</div>
+				</div>
+
+				<!-- Imagem de Destaque -->
+				<div class="lg:col-span-5 relative group">
+					<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+					<div class="relative overflow-hidden rounded-2xl border border-slate-200 shadow-xl bg-white aspect-[4/3] lg:aspect-auto lg:h-[400px]">
+						<img 
+							src="/manutencao-real-1.jpg" 
+							alt="Técnico vidraceiro trabalhando na montagem de estruturas de vidro" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. Missão, Visão e Valores (Grid) -->
+	<section class="py-20 md:py-28 bg-slate-50 border-t border-b border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="mb-16 text-center max-w-3xl mx-auto">
+				<span class="text-sm font-bold text-primary uppercase tracking-wider mb-3 block">Diretrizes Corporativas</span>
+				<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-4">
+					Nossos Fundamentos Estratégicos
+				</h2>
+				<p class="text-lg text-slate-600">O que nos guia no dia a dia para garantir a satisfação dos nossos clientes.</p>
+			</div>
+
+			<!-- Grid de Missão, Visão e Valores com micro-interações -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+				
+				<!-- Missão Card -->
+				<div class="bg-white border border-slate-100 rounded-2xl p-10 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 text-3xl">
+							🎯
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Missão</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Entregar projetos de vidro sob medida que conciliam segurança estrutural absoluta, prazos de entrega pontuais e acabamento refinado de alto padrão.
+						</p>
+					</div>
+				</div>
+
+				<!-- Visão Card -->
+				<div class="bg-white border border-slate-100 rounded-2xl p-10 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 text-3xl">
+							👁️
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Visão</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Consolidar nossa posição em Porto Alegre e Região Metropolitana como a vidraçaria referência em inovação estética e conformidade com as normas técnicas.
+						</p>
+					</div>
+				</div>
+
+				<!-- Valores Card -->
+				<div class="bg-white border border-slate-100 rounded-2xl p-10 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 text-3xl">
+							🤝
+						</div>
+						<h3 class="text-xl font-bold text-secondary mb-4">Valores</h3>
+						<p class="text-slate-600 leading-relaxed text-sm">
+							Segurança inegociável, transparência total no atendimento, conduta ética nos negócios e busca incessante pelo acabamento perfeito.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. Compromisso com a Segurança (NR-18 e ABNT) -->
+	<section class="py-20 md:py-28 bg-white">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Imagem de Segurança -->
+				<div class="lg:col-span-5 order-last lg:order-first relative group">
+					<div class="absolute -inset-1 bg-gradient-to-r from-secondary to-primary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+					<div class="relative overflow-hidden rounded-2xl border border-slate-200 shadow-xl bg-white aspect-[4/3] lg:aspect-auto lg:h-[400px]">
+						<img 
+							src="/manutencao-sacada-1.jpg" 
+							alt="Técnico vidraceiro trabalhando com segurança com EPIs na regulagem de vidros" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+
+				<!-- Texto de Segurança -->
+				<div class="lg:col-span-7">
+					<span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-black tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+						Segurança Corporativa
+					</span>
+					<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-6">
+						Conformidade com a NR-18 e ABNT
+					</h2>
+					<p class="text-lg text-slate-600 leading-relaxed mb-6">
+						Trabalhamos em estrita observância das normas regulamentadoras do trabalho, principalmente a **NR-18** (Segurança e Saúde no Trabalho na Construção). Toda a nossa equipe é treinada, certificada e equipada com EPIs e EPCs adequados para o manuseio seguro de vidros e trabalhos em altura.
+					</p>
+					<p class="text-lg text-slate-600 leading-relaxed mb-6">
+						Nossas ferramentas de içamento, ventosas de transporte e equipamentos de montagem passam por vistorias técnicas periódicas. Isso anula os riscos na obra e assegura um trabalho limpo, profissional e com zero acidentes.
+					</p>
+					<p class="text-lg text-slate-600 leading-relaxed">
+						Além disso, todas as nossas instalações seguem à risca a norma **ABNT NBR 7199** (Projeto, execução e aplicações de vidros na construção civil), empregando vidros temperados ou laminados na espessura correta para cada aplicação.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. Nossa Equipe -->
+	<section class="py-20 md:py-28 bg-slate-50 border-t border-slate-200/50">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Texto -->
+				<div class="lg:col-span-7">
+					<span class="inline-block bg-primary/10 text-secondary text-xs font-black tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+						Nosso Time
+					</span>
+					<h2 class="text-3xl md:text-4xl font-black text-secondary tracking-tighter leading-tight mb-6">
+						Profissionais Altamente Qualificados
+					</h2>
+					<p class="text-lg text-slate-600 leading-relaxed mb-6">
+						O time da nossa vidraçaria é composto por técnicos de medição, projetistas e instaladores com sólida experiência no setor vidreiro da capital gaúcha. 
+					</p>
+					<p class="text-lg text-slate-600 leading-relaxed">
+						Prezamos por um atendimento ágil, transparente e de qualidade. Desde a consultoria técnica inicial no WhatsApp até a fixação do último parafuso, você contará com profissionais capacitados para indicar a melhor solução técnica e estética para a sua obra.
+					</p>
+				</div>
+
+				<!-- Stats cards -->
+				<div class="lg:col-span-5 grid grid-cols-2 gap-6">
+					<div class="bg-white p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+						<span class="text-4xl block mb-3 font-black text-primary">100%</span>
+						<p class="text-slate-900 font-bold text-sm">Equipe Própria</p>
+						<p class="text-slate-500 text-xs mt-1">Sem terceirizados</p>
+					</div>
+					<div class="bg-white p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+						<span class="text-4xl block mb-3 font-black text-primary">ABNT</span>
+						<p class="text-slate-900 font-bold text-sm">Instalação Técnica</p>
+						<p class="text-slate-500 text-xs mt-1">Padrão de engenharia</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</Layout>

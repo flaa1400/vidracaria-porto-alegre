@@ -1,0 +1,288 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { SITE_CONFIG } from '../../data/config';
+
+export async function getStaticPaths() {
+	const servicos = await getCollection('servicos');
+	return servicos.map(entry => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Mapeamento dinâmico de especificações técnicas e benefícios para todos os 15 serviços especializados
+const serviceDataMap = {
+	'box-de-vidro-para-banheiro': {
+		specs: [
+			'Vidro temperado de 8mm a 10mm de espessura.',
+			'Perfis de alumínio anodizado de alta durabilidade contra umidade.',
+			'Roldanas blindadas de rolagem suave e silenciosa.'
+		],
+		benefits: [
+			'Segurança Máxima: Vidros temperados produzidos em conformidade com as normas ABNT.',
+			'Design Customizado: Opções em vidro incolor, fumê, bronze e jateado.',
+			'Higiene e Conforto: Banheiro sempre limpo e seco no dia a dia.'
+		]
+	},
+	'espelho-sob-medida': {
+		specs: [
+			'Espelhos nacionais de 4mm e 6mm de primeira linha.',
+			'Lapidação reta automatizada ou bisotê decorativo sob medida.',
+			'Instalação segura com adesivos isentos de solventes que previnem manchas.'
+		],
+		benefits: [
+			'Luminosidade e Amplitude: Melhora a sensação de espaço nos ambientes.',
+			'Reflexão Premium: Espelho plano perfeito sem qualquer tipo de distorção.',
+			'Sofisticação Estética: Valorização imediata de salas, halls, closets e banheiros.'
+		]
+	},
+	'cobertura-de-vidro': {
+		specs: [
+			'Vidros laminados ou temperados-laminados de alta resistência.',
+			'Estrutura em aço com pintura eletrostática ou perfis de alumínio industrial.',
+			'Vedação com silicone de poliuretano com proteção contra raios UV.'
+		],
+		benefits: [
+			'Iluminação e Conforto: Integração total das áreas externas com proteção termoacústica.',
+			'Proteção Climática: Perfeito contra chuvas, ventos fortes e granizo.',
+			'Durabilidade Extrema: Sistema de vedação projetado contra infiltrações e goteiras.'
+		]
+	},
+	'manutencao-em-sacadas-de-vidro': {
+		specs: [
+			'Substituição de roldanas antigas e eixos de movimentação.',
+			'Alinhamento técnico completo dos painéis de vidro.',
+			'Re-vedação com silicone profissional e troca de perfis de borracha.'
+		],
+		benefits: [
+			'Movimentação Leve: Restaura o deslize suave e silencioso do envidracamento.',
+			'Isolamento Renovado: Previne a entrada de poeira, vento e águas das chuvas.',
+			'Segurança e Prevenção: Elimina riscos de travamentos e quedas de roldanas.'
+		]
+	},
+	'manutencao-em-esquadrias-de-aluminio': {
+		specs: [
+			'Regulagem fina e calibragem de fechos, braços and roldanas.',
+			'Substituição de acessórios e borrachas ressecadas de vedação.',
+			'Desobstrução de canais de drenagem de água pluvial.'
+		],
+		benefits: [
+			'Funcionamento Sem Emperrar: Portas e janelas de alumínio deslizando livremente.',
+			'Fim das Infiltrações: Borrachas e vedações novas impedem infiltrações de água.',
+			'Isolamento Acústico: Redução significativa de trepidações e barulhos do vento.'
+		]
+	},
+	'conserto-de-box-de-banheiro': {
+		specs: [
+			'Troca de roldanas danificadas, puxadores e batedores.',
+			'Remoção de silicone antigo e aplicação de novo silicone antifungo.',
+			'Ajuste técnico do prumo e altura das portas de correr.'
+		],
+		benefits: [
+			'Prevenção de Quebras: Evita o atrito perigoso entre o vidro e os perfis de metal.',
+			'Uso Leve e Seguro: Deslizamento suave e perfeito sem travamentos.',
+			'Sem Vazamentos: Novo silicone estrutural veda frestas mantendo a água no box.'
+		]
+	},
+	'cortina-de-vidro': {
+		specs: [
+			'Vidros temperados de 10mm de espessura.',
+			'Trilhos guia de alumínio estrutural de alta resistência mecânica.',
+			'Rolamentos e eixos internos fabricados em aço inoxidável.'
+		],
+		benefits: [
+			'Vista Panorâmica: Fachada livre e integrada sem perfis verticais de metal.',
+			'Abertura Máxima: Painéis recolhidos lateralmente liberando até 95% do vão.',
+			'Proteção Climatizada: Reduz ruídos urbanos e isola o apartamento de ventanias.'
+		]
+	},
+	'envidracamento-de-sacada': {
+		specs: [
+			'Vidros temperados de 8mm ou 10mm certificados.',
+			'Roldanas especiais em nylon com esferas lubrificadas de fábrica.',
+			'Perfis de junção com sistema de vedação dupla contra intempéries.'
+		],
+		benefits: [
+			'Aproveitamento de Espaço: Varanda integrada à sala de estar do apartamento.',
+			'Fácil Limpeza: Rotação dos painéis para dentro permite limpar com segurança.',
+			'Valorização do Imóvel: Fachada unificada que atende às normas de condomínio.'
+		]
+	},
+	'divisorias-de-vidro': {
+		specs: [
+			'Vidros temperados, laminados ou laminados acústicos.',
+			'Fixação em perfis minimalistas de alumínio ou ferragens pontuais.',
+			'Acabamentos em vidro incolor, opaco (jateado) ou serigrafado.'
+		],
+		benefits: [
+			'Organização e Integração: Divide escritórios e salas mantendo a luminosidade.',
+			'Isolamento Acústico Sutil: Privacidade necessária para reuniões corporativas.',
+			'Estilo Corporativo Premium: Visual moderno, organizado e de alto padrão.'
+		]
+	},
+	'fechamento-de-varanda-com-vidro': {
+		specs: [
+			'Vidros de segurança de alta espessura e resistência.',
+			'Estrutura com travamento mecânico reforçado para ventos fortes.',
+			'Silicone estrutural para vedação total contra intempéries.'
+		],
+		benefits: [
+			'Espaço Extra Todo o Ano: Use sua varanda independente da chuva ou frio.',
+			'Segurança Completa: Excelente proteção antiqueda para crianças e pets.',
+			'Ambiente Protegido: Fim da poeira e fuligem acumuladas nos móveis da varanda.'
+		]
+	},
+	'guarda-corpo-de-vidro': {
+		specs: [
+			'Vidros laminados obrigatórios conforme norma ABNT NBR 14718.',
+			'Torres, botões de pressão ou canaletas embutidas de aço inox.',
+			'Fixação química estrutural em concreto ou vigas metálicas.'
+		],
+		benefits: [
+			'Segurança Garantida: Barreira física ultra resistente que protege contra quedas.',
+			'Estética Invisível: Valoriza a paisagem sem obstruções visuais em sacadas e escadas.',
+			'Limpeza Prática: Materiais resistentes a intempéries que facilitam a higienização.'
+		]
+	},
+	'muro-de-vidro': {
+		specs: [
+			'Vidros temperados-laminados espessos de segurança.',
+			'Colunas estruturais de aço inoxidável ou alumínio com pintura eletrostática.',
+			'Fundação rígida calculada para suportar a carga de vento da região.'
+		],
+		benefits: [
+			'Segurança Sem Sufocar: Fachada moderna e protegida sem fechar a visão da rua.',
+			'Resistência e Segurança: Material anti-pichação e muito difícil de escalar.',
+			'Valorização do Design: Visual minimalista que integra o jardim à calçada.'
+		]
+	},
+	'porta-de-vidro-temperado': {
+		specs: [
+			'Vidro temperado de 8mm ou 10mm de espessura.',
+			'Dobradiças, fechaduras e pivôs em metal nobre (inox ou latão).',
+			'Molas hidráulicas de piso ou aéreas com controle de velocidade.'
+		],
+		benefits: [
+			'Visual Convidativo: Fachadas comerciais e residenciais mais integradas.',
+			'Alta Resistência: Prontas para suportar fluxo intenso de abertura no dia a dia.',
+			'Praticidade: Diversas opções de abertura (correr, pivotante ou de giro).'
+		]
+	},
+	'vidros-sob-medida': {
+		specs: [
+			'Vidros float comuns, temperados ou laminados em diversas espessuras.',
+			'Corte automatizado preciso e lapidação reta ou bisotê impecável.',
+			'Opções de acabamento incolor, bronze, fumê e texturizados.'
+		],
+		benefits: [
+			'Sob Medida: Corte exato sob desenho técnico ou gabarito do seu projeto.',
+			'Tampos de Proteção: Ideal para resguardar mesas e balcões de madeira de riscos.',
+			'Uso Versátil: Perfeito para prateleiras, divisões, janelas e detalhes decorativos.'
+		]
+	},
+	'manutencao-de-cortina-de-vidro': {
+		specs: [
+			'Substituição de roldanas gastas por peças originais de nylon lubrificado.',
+			'Ajuste técnico de folgas, alinhamento e nivelamento de painéis.',
+			'Remoção de vedações velhas e aplicação de novas juntas de silicone.'
+		],
+		benefits: [
+			'Fechamento sem Esforço: Painéis deslizando sem travar nos trilhos de alumínio.',
+			'Prevenção de Sinistros: Substituição preventiva evita quebras perigosas de vidros.',
+			'Estanqueidade Recuperada: Bloqueia novamente infiltrações de chuva e poeira.'
+		]
+	}
+};
+
+const details = serviceDataMap[entry.slug] || { specs: [], benefits: [] };
+---
+
+<Layout title={`${entry.data.title} | Vidraçaria em Porto Alegre`}>
+	
+	<!-- Hero do Serviço -->
+	<section class="bg-white border-b border-slate-200/50 py-24">
+		<div class="max-w-5xl mx-auto px-6">
+			<!-- Tag -->
+			<span class="inline-block bg-primary/10 text-primary text-xs font-black tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+				Serviço Especializado
+			</span>
+			
+			<!-- H1 com escala controlada e tracking-tighter -->
+			<h1 class="text-4xl md:text-5xl font-black text-secondary leading-tight tracking-tighter mb-16">
+				{entry.data.title}
+			</h1>
+			
+			<p class="text-xl text-slate-600 leading-relaxed max-w-3xl font-medium">
+				{entry.data.description}
+			</p>
+		</div>
+	</section>
+
+	<!-- Detalhes do Serviço: Especificações Técnicas + Benefícios -->
+	<section class="bg-slate-100/30">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+				
+				<!-- Seção de Especificações Técnicas (p-10) com micro-interações -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-10 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5">
+					<h2 class="text-2xl font-black text-secondary tracking-tighter leading-tight mb-6">Especificações Técnicas</h2>
+					<ul class="space-y-4">
+						{details.specs.map(spec => (
+							<li class="flex items-start gap-3 text-slate-600 text-base">
+								<span class="text-primary text-lg mt-0.5">✔</span>
+								<span class="font-medium">{spec}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<!-- Benefícios/Aplicações (p-10) com micro-interações -->
+				<div class="bg-white border border-slate-200/60 rounded-2xl p-10 shadow-sm hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
+					<h2 class="text-2xl font-black text-secondary tracking-tighter leading-tight mb-6">Benefícios & Aplicações</h2>
+					<ul class="space-y-4">
+						{details.benefits.map(benefit => (
+							<li class="flex items-start gap-3 text-slate-600 text-base">
+								<span class="text-primary text-lg mt-0.5">★</span>
+								<span class="font-medium">{benefit}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+			</div>
+
+			<!-- Conteúdo Markdown Principal -->
+			<div class="border-t border-slate-200/60 pt-16 bg-white p-10 rounded-2xl shadow-sm border">
+				<h2 class="text-2xl font-black text-secondary tracking-tighter leading-tight mb-8">Informações Detalhadas</h2>
+				<article class="prose prose-lg max-w-none text-slate-600 prose-headings:text-secondary prose-headings:font-bold prose-headings:tracking-tighter prose-headings:leading-tight prose-p:leading-relaxed">
+					<Content />
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA de Fechamento: Fundo escuro (bg-secondary = Slate-900). Corpo deve ser text-white. Título deve ser text-primary (Sky-400). -->
+	<section class="bg-secondary text-white">
+		<div class="max-w-5xl mx-auto px-6 text-center">
+			<h2 class="text-3xl md:text-4xl font-black text-primary tracking-tighter leading-tight mb-6">Fale com um Especialista Agora</h2>
+			<!-- Texto de corpo em fundo escuro DEVE ser text-white -->
+			<p class="text-lg text-white max-w-xl mx-auto mb-10">
+				Solicite um orçamento sob medida ou agende uma medição técnica em seu local com nosso time.
+			</p>
+			<!-- Dois botões grandes com micro-interações -->
+			<div class="flex flex-wrap justify-center gap-6">
+				<a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="bg-primary text-accent hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg shadow-lg shadow-primary/20 hover:bg-sky-300 flex items-center justify-center">
+					Solicitar via WhatsApp
+				</a>
+				<a href={`tel:${SITE_CONFIG.phoneRaw}`} class="bg-white text-secondary hover:scale-105 active:scale-95 transition-all duration-300 font-extrabold px-8 py-4 rounded-lg shadow-lg shadow-white/10 hover:bg-slate-100 flex items-center justify-center">
+					Ligar para {SITE_CONFIG.phone}
+				</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

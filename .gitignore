@@ -1,0 +1,32 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+.astro/
+
+# Logs e Cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Variáveis de Ambiente
+.env
+.env*.local
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Scripts e Arquivos de Deploy
+github_deploy_temp.cjs
+check_repo.cjs
+optimize_new_logo.cjs
+clean_git.cjs
+
