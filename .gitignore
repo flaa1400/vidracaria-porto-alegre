@@ -30,3 +30,5 @@ check_repo.cjs
 optimize_new_logo.cjs
 clean_git.cjs
 
+
+.vercel
