@@ -157,7 +157,7 @@ const { title, description } = Astro.props;
 						<p class="text-gray-100 text-sm leading-relaxed space-y-2">
 							<span class="block">{SITE_CONFIG.address.city} - {SITE_CONFIG.address.state}</span>
 							<span class="block">WhatsApp: <a href={`https://wa.me/${SITE_CONFIG.whatsappRaw}?text=Ol%C3%A1%20vim%20do%20site%2C%20Vidros%20Pro%20e%20gostaria%20de%20fazer%20um%20Or%C3%A7amento`} target="_blank" rel="noopener noreferrer" class="text-primary hover:text-white hover:scale-105 active:scale-95 transition-all inline-block font-semibold underline">{SITE_CONFIG.whatsapp}</a></span>
-							<span class="block">E-mail: <a href={`mailto:${SITE_CONFIG.email}`} class="text-primary hover:text-white hover:scale-105 active:scale-95 transition-all inline-block font-semibold underline">{SITE_CONFIG.email}</a></span>
+							<span class="block">E-mail: <span class="text-primary font-semibold">{SITE_CONFIG.email}</span></span>
 						</p>
 					</div>
 				</div>
